@@ -116,9 +116,10 @@ if (argument[0].hasDouble)
                     thatBullet.doubleType = doubleType;
                     thatBullet.bulletXSpeed = 6;                    
                     thatBullet.bulletYSpeed = 6;
+                    thatBullet.image_yscale = -1;
                     
                                         
-                    shootDoubleCounter++;
+                    shootDoubleCounter += 2;
                     shootDoubleDelayTimer=4;
                     break;
                 case 2:
