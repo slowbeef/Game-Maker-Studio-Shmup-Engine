@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="2" name="datafiles">
-    <datafiles number="2" name="maps">
+  <datafiles number="16" name="datafiles">
+    <datafiles number="16" name="maps">
       <datafile>
         <name>map00.oel</name>
         <exists>-1</exists>
@@ -38,6 +38,23 @@
           </Config>
         </ConfigOptions>
         <filename>map01.oel</filename>
+      </datafile>
+      <datafile>
+        <name>volcano.oel</name>
+        <exists>-1</exists>
+        <size>4076</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>volcano.oel</filename>
       </datafile>
     </datafiles>
   </datafiles>
@@ -113,7 +130,7 @@
     <sprite>sprites\sprTitleLogo</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\tileset0</background>
+    <background>background\tileset1</background>
     <background>background\bkgSky1</background>
     <background>background\bkgSky2</background>
     <background>background\bkgSky3</background>
@@ -140,6 +157,7 @@
       <script>scripts\spawnSprites.gml</script>
       <script>scripts\changeMap.gml</script>
       <script>scripts\spawnBoss1.gml</script>
+      <script>scripts\tileLookup.gml</script>
     </scripts>
     <script>scripts\menuExecute.gml</script>
     <script>scripts\multiPlayerPowerupHUD.gml</script>
@@ -189,6 +207,7 @@
       <object>objects\objPlayerCapsuleHitbox</object>
       <object>objects\objSpreadExplosion</object>
     </objects>
+    <object>objects\object27</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

@@ -16,7 +16,7 @@
     <Width>99999999</Width>
     <Height>99999999</Height>
   </LevelMaximumSize>
-  <Filename>C:\Users\myste_000\Desktop\OgmoMaps\GR_template.oep</Filename>
+  <Filename>E:\Game-Maker-Studio-Shmup-Engine\maps\GR_template.oep</Filename>
   <AngleMode>Radians</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -64,8 +64,17 @@
   </LayerDefinitions>
   <Tilesets>
     <Tileset>
-      <Name>tileset0</Name>
-      <FilePath>tileset0.png</FilePath>
+      <Name>tileset1</Name>
+      <FilePath>tileset1.png</FilePath>
+      <TileSize>
+        <Width>16</Width>
+        <Height>16</Height>
+      </TileSize>
+      <TileSep>0</TileSep>
+    </Tileset>
+    <Tileset>
+      <Name>Volcano Tileset</Name>
+      <FilePath>volcanotileset.png</FilePath>
       <TileSize>
         <Width>16</Width>
         <Height>16</Height>

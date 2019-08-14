@@ -37,7 +37,7 @@ if objMain.extFiles=true
 {
     dir = program_directory + "maps\";
     
-    background_replace(tileset0, program_directory + "/maps/tileset_test.png",0,0);
+    background_replace(tileset, program_directory + "/maps/tileset_test.png",0,0);
 }
 else
 {

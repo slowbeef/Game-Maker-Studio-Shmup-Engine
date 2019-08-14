@@ -311,6 +311,25 @@ List:
 
 //Below is Row 1
 
+
+/* 
+Slowbeef:
+
+I don't really love this because it locks you to 16x16 tilesets. It might be better in general to keep tilesets to that
+limit for a reason I'm not sure of, though.
+
+At any rate, attempting a different method.
+*/
+
+getTileType(tileNumber) {
+    if (tileNumber == 4) { return "solid"; }
+    if (tileNumber == 5) { return "solid"; }
+    if (tileNumber == 6) { return "solid"; }
+    if (tileNumber &gt; 512) { return "solid"; }
+    
+    return "blank";    
+}
+
 tiletypes[0] = "blank";
 tiletypes[1] = "blank";
 tiletypes[2] = "blank";
@@ -1250,8 +1269,8 @@ if (global.state==states.equipScreen)
         }
         audio_group_unload(sfxMenu);
         audio_group_load(sfxInGame);
-        loadLevel("map00.oel");
-        global.prevMap = "map00.oel";
+        loadLevel("volcano.oel");
+        global.prevMap = "volcano.oel";
         audio_stop_sound(global.currentSong);
         changeBGM(musFlight2,false);
         objMain.x = objCamera.x;

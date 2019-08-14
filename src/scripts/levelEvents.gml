@@ -3,6 +3,14 @@
 
 switch(global.currentMap)
 {
+    case "volcano.oel": //Test Volcano Stage
+        if objCamera.x<-250{objMain.nextGameLoop=false;}
+        if objCamera.x > (global.mapWidth * global.tileWidth) - 32 && !objMain.nextGameLoop
+        {
+            changeMap("map01.oel",musStage1);
+        }
+        break;
+    
     case "map00.oel": //Pre-stage 1
         if objCamera.x<-250{objMain.nextGameLoop=false;}
         if objCamera.x > (global.mapWidth * global.tileWidth) - 32 && !objMain.nextGameLoop

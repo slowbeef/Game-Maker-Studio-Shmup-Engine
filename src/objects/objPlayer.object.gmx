@@ -39,7 +39,7 @@ draw_sprite(sprForceField, 0, 0, 0);
 draw_sprite(sprFont, 0, 0, 0);
 draw_sprite(sprDouble, 0, 0, 0);
 draw_sprite(sprBullet, 0, 0, 0);
-draw_sprite(tileset0, 0, 0, 0);
+draw_sprite(tileset1, 0, 0, 0);
 draw_sprite(sprSpreadExplosion, 0, 0, 0);
 draw_sprite(sprTwinLaser, 0, 0, 0);
 draw_sprite(sprRippleLaser, 0, 0, 0);
