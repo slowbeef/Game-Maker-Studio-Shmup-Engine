@@ -46,15 +46,16 @@ Find out the tile interaction behavior for:
     
     All of these values were also pre-calculated in the g/a variables listed above this comment.
 */
-var c1 = real(ds_grid_get(objMain.levelData, g1, a1));
-var c2 = real(ds_grid_get(objMain.levelData, g1, a2));
-var c3 = real(ds_grid_get(objMain.levelData, g2, a1));
-var c4 = real(ds_grid_get(objMain.levelData, g2, a2));
-var c5 = real(ds_grid_get(objMain.levelData, g1, a3));
-var c6 = real(ds_grid_get(objMain.levelData, g2, a4));
+var c1 = real(ds_grid_get(objMain.levelDataLayer2, g1, a1));
+var c2 = real(ds_grid_get(objMain.levelDataLayer2, g1, a2));
+var c3 = real(ds_grid_get(objMain.levelDataLayer2, g2, a1));
+var c4 = real(ds_grid_get(objMain.levelDataLayer2, g2, a2));
+var c5 = real(ds_grid_get(objMain.levelDataLayer2, g1, a3));
+var c6 = real(ds_grid_get(objMain.levelDataLayer2, g2, a4));
 
 //Ensure that each possible tile to check is also not out of bounds before we try reading it
 //This is because Game Maker dislikes negative values in the array, causing fatal crashes
+
 if c1<0 {c1=0;}
 if c2<0 {c2=0;}
 if c3<0 {c3=0;}
@@ -62,14 +63,17 @@ if c4<0 {c4=0;}
 if c5<0 {c5=0;}
 if c6<0 {c6=0;}
 
-//Now that we know all numbers should be in-bounds the tiletypes array, start checking for
-//actual collisions and return true if we're touching any tile at all
-if (objMain.tiletypes[c1] == argument[2])
-|| (objMain.tiletypes[c2] == argument[2])
-|| (objMain.tiletypes[c3] == argument[2])
-|| (objMain.tiletypes[c4] == argument[2])
+/* 
+Mysterpaint's method was to hardcode tile-types into a big array and manually check but instead, 
+this uses the Overlay layer in Ogmo to do background collision detection.
+*/
 
-|| (objMain.tiletypes[c5] == argument[2])
-|| (objMain.tiletypes[c6] == argument[2])
-{return true;}
+if (c1 > 0 ||
+    c2 > 0 ||
+    c3 > 0 ||
+    c4 > 0 ||
+    c5 > 0 ||
+    c6 > 0) {
+        return true;
+    }
 return false;
