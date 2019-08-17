@@ -27,7 +27,7 @@
   <LevelValueDefinitions />
   <LayerDefinitions>
     <LayerDefinition xsi:type="TileLayerDefinition">
-      <Name>foreground</Name>
+      <Name>passthru_bg</Name>
       <Grid>
         <Width>16</Width>
         <Height>16</Height>
@@ -39,7 +39,7 @@
       <ExportMode>CSV</ExportMode>
     </LayerDefinition>
     <LayerDefinition xsi:type="TileLayerDefinition">
-      <Name>overlay</Name>
+      <Name>collidable_bg</Name>
       <Grid>
         <Width>16</Width>
         <Height>16</Height>
@@ -75,6 +75,15 @@
     <Tileset>
       <Name>Volcano Tileset</Name>
       <FilePath>volcanotileset.png</FilePath>
+      <TileSize>
+        <Width>16</Width>
+        <Height>16</Height>
+      </TileSize>
+      <TileSep>0</TileSep>
+    </Tileset>
+    <Tileset>
+      <Name>tileset0</Name>
+      <FilePath>tileset0.png</FilePath>
       <TileSize>
         <Width>16</Width>
         <Height>16</Height>

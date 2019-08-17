@@ -321,7 +321,7 @@ limit for a reason I'm not sure of, though.
 At any rate, attempting a different method.
 */
 
-getTileType(tileNumber) {
+/*getTileType(tileNumber) {
     if (tileNumber == 4) { return "solid"; }
     if (tileNumber == 5) { return "solid"; }
     if (tileNumber == 6) { return "solid"; }
@@ -601,7 +601,7 @@ tiletypes[252] = "blank";
 tiletypes[253] = "blank";
 tiletypes[254] = "blank";
 tiletypes[255] = "blank";
-
+*/
 </string>
           </argument>
         </arguments>

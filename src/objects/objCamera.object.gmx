@@ -319,18 +319,24 @@ if (global.state==2 || global.state==3 || global.state==5)
             
             if (c&gt;=0 &amp;&amp; c&lt;(global.mapWidth) &amp;&amp; r&gt;=0 &amp;&amp; r&lt;(global.mapHeight))
             {
-            var tileID = ds_grid_get(objMain.levelData, c, r);
+                var tileID = ds_grid_get(objMain.levelDataLayer2, c, r);
+                if (tileID == 0)
+                {
+                    tileID = ds_grid_get(objMain.levelData, c, r);
+                }
             }
             else {tileID=0;}
             
-            if (tileID&lt;0 || tileID&gt;255)
-                {tileID=0;}
+            if (tileID&lt;0)
+            {
+                tileID=0;
+            }
                 
-                var xPos = round((c - startCol) * global.tileWidth + offsetX);
-                var yPos = round((r - startRow) * global.tileHeight + offsetY);
+            var xPos = round((c - startCol) * global.tileWidth + offsetX);
+            var yPos = round((r - startRow) * global.tileHeight + offsetY);
     
             if (tileID!=0)
-                {
+            {
                 draw_background_part(
                 global.tilesetIndex, // image
                 getTile(real(tileID),3), // source x
@@ -341,7 +347,7 @@ if (global.state==2 || global.state==3 || global.state==5)
                 yPos // target y
                 );//depth
                 
-                }
+            }
         }
     }
     }
@@ -649,8 +655,8 @@ if (global.state==2 || global.state==3 || global.state==5)
             }
             else {tileID=0;}
             
-            if (tileID&lt;0 || tileID&gt;255)
-                {tileID=0;}
+            if (tileID &lt; 0)
+                {tileID = 0;}
                 
                 var xPos = round((c - startCol) * global.tileWidth + offsetX);
                 var yPos = round((r - startRow) * global.tileHeight + offsetY);

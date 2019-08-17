@@ -55,7 +55,6 @@ var c6 = real(ds_grid_get(objMain.levelDataLayer2, g2, a4));
 
 //Ensure that each possible tile to check is also not out of bounds before we try reading it
 //This is because Game Maker dislikes negative values in the array, causing fatal crashes
-
 if c1<0 {c1=0;}
 if c2<0 {c2=0;}
 if c3<0 {c3=0;}
@@ -63,17 +62,13 @@ if c4<0 {c4=0;}
 if c5<0 {c5=0;}
 if c6<0 {c6=0;}
 
-/* 
-Mysterpaint's method was to hardcode tile-types into a big array and manually check but instead, 
-this uses the Overlay layer in Ogmo to do background collision detection.
-*/
-
 if (c1 > 0 ||
     c2 > 0 ||
     c3 > 0 ||
     c4 > 0 ||
     c5 > 0 ||
-    c6 > 0) {
+    c6 > 0)
+    {
         return true;
     }
 return false;

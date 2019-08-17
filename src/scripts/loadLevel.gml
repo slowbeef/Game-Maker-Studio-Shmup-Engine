@@ -35,8 +35,7 @@ for (var i=0; i < 6;i++)
 
 if objMain.extFiles=true
 {
-    dir = program_directory + "maps\";
-    
+    dir = program_directory + "maps\";    
     background_replace(tileset, program_directory + "/maps/tileset_test.png",0,0);
 }
 else
@@ -120,30 +119,32 @@ for (var i=1; i<=global.mapHeight ;i++;)
 //show_message(string(j) + ", " + string(i));
 
  
- for (var k=1; k <= string_length(hey); k++)
-   {
+for (var k=1; k <= string_length(hey); k++)
+    {
    
-      if global.tilesetIndex==0
-      {
-        var q="";
-          if (string_char_at(string(hey),k)==' ')
-          {
-          k+=23;
+    if global.tilesetIndex==0
+        {
+           var q="";
+           if (string_char_at(string(hey),k)==' ')
+              {
+                  k+=23;
           
-          while (string_char_at(string(hey),k)!='"' && k<57)
-          {
-          q += (string_char_at(string(hey),k));
-          k++;
-          }
+              while (string_char_at(string(hey),k)!='"' && k<57)
+                  {
+                      q += (string_char_at(string(hey),k));
+                      k++;
+                  }
           
-          global.tilesetIndex=background_get_name(asset_get_index(q));//argument[1];
+               global.tilesetIndex=background_get_name(asset_get_index(q));//argument[1];
           
-          k+=19;
-          }
-      if k==string_length(hey) {i++;j--;}    
-          
-      }
-      
+               k+=19;
+               }
+        if k==string_length(hey) 
+            {
+                i++;
+                j--;
+            }    
+       }
       
        tileBuffer = tileBuffer + string_char_at(string(hey),k);
 
@@ -345,7 +346,7 @@ spawnSprites();
 //Close the text document to avoid memory leaks
 file_text_close(file);
 
-global.tilesetWidth=16;
-global.tilesetHeight=16;
+global.tilesetWidth=32;
+global.tilesetHeight=32;
 global.currentMap = argument[0]; //Let the game know which map is currently loaded
 objMain.switchingMaps = false;
