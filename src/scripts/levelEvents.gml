@@ -7,7 +7,7 @@ switch(global.currentMap)
         if objCamera.x<-250{objMain.nextGameLoop=false;}
         if objCamera.x > (global.mapWidth * global.tileWidth) - 32 && !objMain.nextGameLoop
         {
-            changeMap("map01.oel",musStage1);
+            changeMap("volcano.oel",musStage1);
         }
         break;
     

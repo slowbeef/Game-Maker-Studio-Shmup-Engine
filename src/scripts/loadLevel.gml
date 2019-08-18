@@ -104,6 +104,8 @@ objMain.levelDataLayer2 = ds_grid_create(global.mapWidth, global.mapHeight);
 
 global.tilesetIndex=0;
 
+//This is totally ridiculous. Why not just iterate until you hit right angle bracket and go from there?
+
 for (var i=1; i<=global.mapHeight ;i++;)
 {
  for (var j=1; j<=global.mapWidth ;j++;)
@@ -127,7 +129,7 @@ for (var k=1; k <= string_length(hey); k++)
            var q="";
            if (string_char_at(string(hey),k)==' ')
               {
-                  k+=23;
+                  k+=20;
           
               while (string_char_at(string(hey),k)!='"' && k<57)
                   {
@@ -151,22 +153,22 @@ for (var k=1; k <= string_length(hey); k++)
        if (string_char_at(string(hey),k)==',')
        {
        
-       tileID = string_delete(tileBuffer,string_length(tileBuffer),1);
-       if (tileID="-1"){tileID=0;}
-       //tileID is the tile we want to store here. Let's store it into the ds_grid.
-       ds_grid_set(objMain.levelData, j-1, i-1, tileID);
+            tileID = string_delete(tileBuffer,string_length(tileBuffer),1);
+            if (tileID="-1"){tileID=0;}
+            //tileID is the tile we want to store here. Let's store it into the ds_grid.
+            ds_grid_set(objMain.levelData, j-1, i-1, tileID);
        
-       tileBuffer = "";
-       j++;
+             tileBuffer = "";
+            j++;
        }
        else if(j>=global.mapWidth)
        {
-       tileID="";
-       while (string_char_at(string(hey),k)!='<') && (k<string_length(hey))
-       {
-       tileID += string_char_at(string(hey),k);
-//       show_message(string(k) + ", " + string_char_at(string(hey),k) + ", " + string(tileID) + string(string_length(hey)));
-       k++;
+            tileID="";
+            while (string_char_at(string(hey),k)!='<') && (k<string_length(hey))
+            {
+            tileID += string_char_at(string(hey),k);
+            //       show_message(string(k) + ", " + string_char_at(string(hey),k) + ", " + string(tileID) + string(string_length(hey)));
+            k++;
        }
        
        
