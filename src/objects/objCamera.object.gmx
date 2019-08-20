@@ -296,11 +296,8 @@ if (global.state != states.startRoom)
             <kind>1</kind>
             <string>///Drawing layer 1
 
-if (global.state==2 || global.state==3 || global.state==5)
-{
-    if (ds_exists(objMain.levelData,ds_type_grid))
-    {    
-    
+if (global.state==2 || global.state==3 || global.state==5) {
+    if (ds_exists(objMain.levelData,ds_type_grid)) {    
     
     //dynamic render
     var startCol = floor(objCamera.x / global.tileWidth)-1;
@@ -319,20 +316,22 @@ if (global.state==2 || global.state==3 || global.state==5)
             
             if (c&gt;=0 &amp;&amp; c&lt;(global.mapWidth) &amp;&amp; r&gt;=0 &amp;&amp; r&lt;(global.mapHeight))
             {
-                var tileID = ds_grid_get(objMain.levelDataLayer2, c, r);
+                var tileID = real(ds_grid_get(objMain.levelDataLayer2, c, r));
                 if (tileID &lt;= 0)
                 {
-                    tileID = ds_grid_get(objMain.levelData, c, r);
+                    tileID = real(ds_grid_get(objMain.levelData, c, r));
                 }
             }
             else {tileID=0;}
             
-            if (tileID&lt;0)
+//            if (tileID&lt;0)
+//
             var xPos = round((c - startCol) * global.tileWidth + offsetX);
             var yPos = round((r - startRow) * global.tileHeight + offsetY);
     
-            if (tileID&gt;0)
+            if (tileID &gt; 0)
             {
+                
                 draw_background_part(
                 global.tilesetIndex, // image
                 getTile(real(tileID),3), // source x
@@ -624,12 +623,13 @@ if (global.state != states.startRoom)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Drawing overlay layer
+            <string>// This is no longer needed, but uncomment it if you get a third layer meant to go over the ship.
 
-if (global.state==2 || global.state==3 || global.state==5)
-{
-    if (ds_exists(objMain.levelDataLayer2,ds_type_grid))
-    {
+/*
+///Drawing overlay layer
+
+if (global.state==2 || global.state==3 || global.state==5) {
+    if (ds_exists(objMain.levelDataLayer2,ds_type_grid)) {
     
     //dynamic render
     var startCol = floor(objCamera.x / global.tileWidth)-1;
@@ -648,38 +648,41 @@ if (global.state==2 || global.state==3 || global.state==5)
             
             if (c&gt;=0 &amp;&amp; c&lt;(global.mapWidth) &amp;&amp; r&gt;=0 &amp;&amp; r&lt;(global.mapHeight))
             {
-                var tileID = ds_grid_get(objMain.levelDataLayer2, c, r);
-                if (tileID &lt;= 0) {
-                    tileID = ds_grid_get(objMain.levelData, c, r);
+                var tileID = real(ds_grid_get(objMain.levelDataLayer2, c, r));
+                if (tileID &lt;= 0) 
+                {
+                    tileID = real(ds_grid_get(objMain.levelData, c, r));
                 }
             }
             else {tileID=0;}
             
-            if (tileID &lt; 0)
-                {tileID = 0;}
-                
+//            if (tileID &lt; 0)
+//                {tileID = 0;}    
                 var xPos = round((c - startCol) * global.tileWidth + offsetX);
                 var yPos = round((r - startRow) * global.tileHeight + offsetY);
     
-            if (tileID!=0)
-                {
+            if (tileID &gt; 0) // Change this back to !=0 to fix the foreground (?!)
+            {
+            
                 draw_background_part(
                 global.tilesetIndex, // image
                 getTile(real(tileID),3), // source x
+                
                 getTile(real(tileID),4), // source y
                 global.tileWidth, // source width
                 global.tileHeight, // source height
                 xPos,// target x
                 yPos // target y
                 );//depth
-                
-                }
+
+            }
         }
     }
     
     }
 
 }
+*/
 </string>
           </argument>
         </arguments>

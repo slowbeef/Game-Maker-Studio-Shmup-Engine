@@ -66,20 +66,17 @@ file = file_text_open_read(dir + argument[0]);
 
 var mapHeader = file_text_readln(file);
 
-for (k=1; k <= string_length(mapHeader); k++)
-{
+for (k=1; k <= string_length(mapHeader); k++) {
         
-    if (string_char_at(string(mapHeader),k)=='"')
-       {
+    if (string_char_at(string(mapHeader),k)=='"') {
        
        var j="";
-           k++;
+       k++;
            
-           while (string_char_at(string(mapHeader),k)!='"')
-               {
-               j += string_char_at(string(mapHeader),k);
-               k++;
-               }
+       while (string_char_at(string(mapHeader),k)!='"') {
+            j += string_char_at(string(mapHeader),k);
+            k++;
+       }
                
                if global.mapWidth<=0
                {
@@ -105,174 +102,99 @@ objMain.levelDataLayer2 = ds_grid_create(global.mapWidth, global.mapHeight);
 global.tilesetIndex=0;
 
 //This is totally ridiculous. Why not just iterate until you hit right angle bracket and go from there?
+//Comment out the i,j for loops. Go over "hey" (ugh) until you hit >, then just do comma reading and set ds until you're done.
 
-for (var i=1; i<=global.mapHeight ;i++;)
-{
- for (var j=1; j<=global.mapWidth ;j++;)
- {
-
- var hey =  file_text_readln(file);
- var commaCount = 0;
- var tileBuffer = "";
- var tileID = "";
- //loop through every single character in our line (hey) until we hit a comma
-
+var i = 0;
+var j = 0;
+var hey = file_text_readln(file);
+var commaCount = 0;
+var tileBuffer = "";
+var tileID = "";
+//loop through every single character in our line (hey) until we hit a comma
  
 //show_message(string(j) + ", " + string(i));
 
- 
-for (var k=1; k <= string_length(hey); k++)
-    {
-   
-    if global.tilesetIndex==0
-        {
-           var q="";
-           if (string_char_at(string(hey),k)==' ')
-              {
-                  k+=20;
-          
-              while (string_char_at(string(hey),k)!='"' && k<57)
-                  {
-                      q += (string_char_at(string(hey),k));
-                      k++;
-                  }
-          
-               global.tilesetIndex=background_get_name(asset_get_index(q));//argument[1];
-          
-               k+=19;
-               }
-        if k==string_length(hey) 
-            {
-                i++;
-                j--;
-            }    
-       }
-      
-       tileBuffer = tileBuffer + string_char_at(string(hey),k);
+var startFrom = 0;
+while (string_char_at(string(hey), startFrom) != '>') {
+    startFrom++
+}
+startFrom++
 
-       if (string_char_at(string(hey),k)==',')
-       {
-       
-            tileID = string_delete(tileBuffer,string_length(tileBuffer),1);
-            if (tileID="-1"){tileID=0;}
-            //tileID is the tile we want to store here. Let's store it into the ds_grid.
-            ds_grid_set(objMain.levelData, j-1, i-1, tileID);
-       
-             tileBuffer = "";
-            j++;
-       }
-       else if(j>=global.mapWidth)
-       {
-            tileID="";
-            while (string_char_at(string(hey),k)!='<') && (k<string_length(hey))
-            {
-            tileID += string_char_at(string(hey),k);
-            //       show_message(string(k) + ", " + string_char_at(string(hey),k) + ", " + string(tileID) + string(string_length(hey)));
-            k++;
-       }
-       
-       
-       if (tileID="-1"){tileID=0;}
-       //tileID is the last tile on this row. Let's store it into the ds_grid.
-//        show_message(tileID);
-       
-       ds_grid_set(objMain.levelData, j-1, i-1, tileID);
-       
-       break;
-       }
-       
-   }  
-     
- }
+var tileIDString = "";
+var tilesRead = 0;
+ 
+// First time, don't check, you know it's right.
+var charToCheck = 999;
+while (string_char_at(string(hey), charToCheck) != ' ') {
+    for (var k = startFrom; k <= string_length(hey); k++) {
+        var currentChar = string_char_at(string(hey), k);
+
+        if (currentChar == ',') { // It's a comma, go to the next tile;
+            i = tilesRead % global.mapWidth;
+            j = floor(tilesRead / global.mapWidth);
+            ds_grid_set(objMain.levelData, i, j, tileIDString);
+            tileIDString = "";
+            tilesRead++;
+        } else {
+            tileIDString += currentChar;
+        }
+    }
+    i = tilesRead % global.mapWidth;
+    j = floor(tilesRead / global.mapWidth);
+    ds_grid_set(objMain.levelDataLayer2, i + 1, j, tileIDString);
+    tileIDString = "";
+    tilesRead++;
+    
+    hey = file_text_readln(file)
+    charToCheck = 0;
+    startFrom = 0;
+}
+
+i = 0;
+j = 0;
+//hey = file_text_readln(file);
+commaCount = 0;
+tileBuffer = "";
+tileID = "";
+
+while (string_char_at(string(hey), startFrom) != '>') {
+    startFrom++;
+}
+startFrom++;
+
+tileIDString = "";
+tilesRead = 0;
+
+charToCheck = 999;
+while (string_char_at(string(hey), charToCheck) != ' ') { 
+    for (var k=startFrom; k <= string_length(hey); k++) {
+        var currentChar = string_char_at(string(hey), k);
+
+        if (currentChar == ',') { // It's a comma, go to the next tile;
+            i = tilesRead % global.mapWidth;
+            j = floor(tilesRead / global.mapWidth);
+            ds_grid_set(objMain.levelDataLayer2, i, j, tileIDString);
+            tileIDString = "";
+            tilesRead++;
+        } else {
+            tileIDString += currentChar;
+        }   
+    }
+    i = tilesRead % global.mapWidth;
+    j = floor(tilesRead / global.mapWidth);
+    ds_grid_set(objMain.levelDataLayer2, i, j, tileIDString);
+    tileIDString = "";
+    tilesRead++;
+    
+    hey = file_text_readln(file);
+    charToCheck = 0;
+    startFrom = 0;
 }
 
 
-//overlay tileset
 
-global.overlayTilesetIndex=0;
-
-for (var i=1; i<=global.mapHeight ;i++;)
-{
- for (var j=1; j<=global.mapWidth ;j++;)
- {
-
- var hey =  file_text_readln(file);
- var commaCount = 0;
- var tileBuffer = "";
- var tileID = "";
- //loop through every single character in our line (hey) until we hit a comma
-
- 
-//show_message(string(j) + ", " + string(i));
-
- 
- for (var k=1; k <= string_length(hey); k++)
-   {
-   
-      if global.overlayTilesetIndex==0
-      {
-        var q="";
-          if (string_char_at(string(hey),k)==' ')
-          {
-          k+=20;
-          
-          while (string_char_at(string(hey),k)!='"' && k<57)
-          {
-          q += (string_char_at(string(hey),k));
-          k++;
-          }
-          
-          global.overlayTilesetIndex=background_get_name(asset_get_index(q));//argument[1];
-          
-          k+=19;
-          }
-      if k==string_length(hey)-1 {i++;j--;}    
-          
-      }
-      
-      if j>=string_length(hey)-1 {i++;break;}    
-      
-       tileBuffer = tileBuffer + string_char_at(string(hey),k);
-
-       if (string_char_at(string(hey),k)==',')
-       {
-
-       tileID = string_delete(tileBuffer,string_length(tileBuffer),1);
-       
-       if (tileID="-1"){tileID=0;}
-       //tileID is the tile we want to store here. Let's store it into the ds_grid.
-       ds_grid_set(objMain.levelDataLayer2, j-1, i-1, tileID);
-       
-       tileBuffer = "";
-       j++;
-       }
-       else if(j>=global.mapWidth)
-       {
-       tileID="";
-       while (string_char_at(string(hey),k)!='<') && (k<string_length(hey))
-       {
-       tileID += string_char_at(string(hey),k);
-//       show_message(string(k) + ", " + string_char_at(string(hey),k) + ", " + string(tileID) + string(string_length(hey)));
-       k++;
-       }
-       
-       
-       if (tileID="-1"){tileID=0;}
-       //tileID is the last tile on this row. Let's store it into the ds_grid.
-//        show_message(tileID);
-       
-       ds_grid_set(objMain.levelDataLayer2, j-1, i-1, tileID);
-       
-       break;
-       }
-       
-   }  
-     
- }
-}
-
-
-hey =  file_text_readln(file); //<entities>
+//Commented this out because if you fell out the while loop above, you already have this line.
+//hey =  file_text_readln(file); //<entities>
 
 hey =  file_text_readln(file); //first sprite
 
