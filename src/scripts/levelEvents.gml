@@ -5,11 +5,23 @@ switch(global.currentMap)
 {
     case "volcano.oel": //Test Volcano Stage
         if objCamera.x<-250{objMain.nextGameLoop=false;}
+
+        /* Stops the screen at the volcano        
+        if (objCamera.x > 200) {
+            objCamera.prevScrollX = objCamera.scrollX;
+            objCamera.prevScrollY = objCamera.scrollY;
+
+            objCamera.scrollX = 0;
+            objCamera.scrollY = 0;
+        }
+        */
+        
         if objCamera.x > (global.mapWidth * global.tileWidth) - 32 && !objMain.nextGameLoop
         {
             changeMap("volcano.oel",musStage1);
         }
         break;
+    
     
     case "map00.oel": //Pre-stage 1
         if objCamera.x<-250{objMain.nextGameLoop=false;}

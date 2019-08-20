@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="33" name="datafiles">
-    <datafiles number="33" name="maps">
+  <datafiles number="39" name="datafiles">
+    <datafiles number="39" name="maps">
       <datafile>
         <name>map00.oel</name>
         <exists>-1</exists>
@@ -42,7 +42,7 @@
       <datafile>
         <name>volcano.oel</name>
         <exists>-1</exists>
-        <size>4121</size>
+        <size>4215</size>
         <exportAction>2</exportAction>
         <exportDir></exportDir>
         <overwrite>0</overwrite>
@@ -207,7 +207,11 @@
       <object>objects\objPlayerCapsuleHitbox</object>
       <object>objects\objSpreadExplosion</object>
     </objects>
-    <object>objects\object27</object>
+    <objects name="Volcano">
+      <object>objects\objVolcanoStarter</object>
+      <object>objects\objVolcanoTop</object>
+      <object>objects\objVolcanoEruptor</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

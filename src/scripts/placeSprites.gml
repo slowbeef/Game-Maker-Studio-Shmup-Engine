@@ -34,6 +34,15 @@ case "objBean_Pattern2":
             with (myID) {myID = string(argument[1]) + "_" + string(i); groupID = string(argument[1]); isolatedNum = i; patternType = 2; lagFrames = (i*16);}
         }
         break;
+case "objVolcanoStarter":
+        var myID = instance_create(argument[2],argument[3],objVolcanoStarter);
+        with (myID) {myID = argument[1];}
+        break;
+case "objVolcanoTop":
+        var myID = instance_create(argument[2],argument[3],objVolcanoTop);
+        with (myID) {myID = argument[1];}
+        break;
+
 //Throw an error in case we run into some undefined case
 case "undefined":
 default: if(!objMain.threwError){show_message("Warning: Unknown object(s) detected! Unable to spawn and skipping over it.##Make sure each object has a switch case in the placeSprite() script: each case should perfectly match their corresponding entity's name in the .oep!");objMain.threwError=true;}
