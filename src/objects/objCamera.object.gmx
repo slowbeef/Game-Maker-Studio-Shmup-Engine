@@ -379,6 +379,7 @@ if (global.state != states.startRoom)
     drawSprites(objBossBarrier,sprBossBarrier);
     drawSprites(obj16x16Explosion,spr16x16Explosion);
     drawSprites(objCapsule,sprCapsule);
+    drawSprites(objChunkExplosion,sprChunkExplosion);
     
     //Draw missiles
     if instance_exists(objMissile)

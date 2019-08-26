@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>eruptorCreated = false;
+            <string>generatorCreated = false;
 </string>
           </argument>
         </arguments>
@@ -48,15 +48,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (objCamera.x &gt; x &amp;&amp; !eruptorCreated) {
-    objCamera.prevScrollX = objCamera.scrollX;
-    objCamera.prevScrollY = objCamera.scrollY;
+            <string>if (objCamera.x &gt; x) {    
+    if (generatorCreated == false) {
+        objCamera.prevScrollX = objCamera.scrollX;
+        objCamera.prevScrollY = objCamera.scrollY;
+        objCamera.scrollX = 0;
+        objCamera.scrollY = 0;
 
-    objCamera.scrollX = 0;
-    objCamera.scrollY = 0;
-    
-    eruptorCreated = true;
-    instance_create(objVolcanoTop.x, objVolcanoTop.y, objVolcanoEruptor)
+        instance_create(objVolcanoTop.x, objVolcanoTop.y, objVolcanoChunkGenerator);
+        instance_create(objVolcanoTop.x, objVolcanoTop.y, objVolcanoFinisher);
+        generatorCreated = true;
+    }
+} else if (objCamera.x &gt; (x + objCamera.viewportWidth)) {
+    show_debug_message("destroying volcano starter")
+    instance_destroy()
 }
 </string>
           </argument>

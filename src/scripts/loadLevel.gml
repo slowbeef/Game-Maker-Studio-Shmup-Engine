@@ -149,7 +149,7 @@ while (string_char_at(string(hey), charToCheck) != ' ') {
     
     hey = file_text_readln(file)
     charToCheck = 0;
-    startFrom = 0;
+    startFrom = 1;
 }
 
 i = 0;
@@ -190,7 +190,7 @@ while (string_char_at(string(hey), charToCheck) != ' ') {
     
     hey = file_text_readln(file);
     charToCheck = 0;
-    startFrom = 0;
+    startFrom = 1; // Do Game Maker strings start from a 1-index?
 }
 
 

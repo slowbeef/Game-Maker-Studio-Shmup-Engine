@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="39" name="datafiles">
-    <datafiles number="39" name="maps">
+  <datafiles number="43" name="datafiles">
+    <datafiles number="43" name="maps">
       <datafile>
         <name>map00.oel</name>
         <exists>-1</exists>
@@ -42,7 +42,7 @@
       <datafile>
         <name>volcano.oel</name>
         <exists>-1</exists>
-        <size>4215</size>
+        <size>4075</size>
         <exportAction>2</exportAction>
         <exportDir></exportDir>
         <overwrite>0</overwrite>
@@ -99,6 +99,8 @@
       <sprite>sprites\sprLion</sprite>
       <sprite>sprites\sprBigExplosion</sprite>
       <sprite>sprites\sprBossBarrier</sprite>
+      <sprite>sprites\sprVolcanoChunk</sprite>
+      <sprite>sprites\sprChunkExplosion</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\sprBullet</sprite>
@@ -210,7 +212,10 @@
     <objects name="Volcano">
       <object>objects\objVolcanoStarter</object>
       <object>objects\objVolcanoTop</object>
-      <object>objects\objVolcanoEruptor</object>
+      <object>objects\objVolcanoFinisher</object>
+      <object>objects\objVolcanoChunk</object>
+      <object>objects\objVolcanoChunkGenerator</object>
+      <object>objects\objChunkExplosion</object>
     </objects>
   </objects>
   <rooms name="rooms">

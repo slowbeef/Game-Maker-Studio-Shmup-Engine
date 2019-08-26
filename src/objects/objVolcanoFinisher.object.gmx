@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>sprBossLaser</maskName>
+  <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -25,7 +25,59 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>moveSpeedX = 4;
+            <string>show_debug_message ("Alarm started")
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>301</id>
+        <kind>0</kind>
+        <userelative>-1</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_set_alarm</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>200</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>show_debug_message("Alarm went off")
+objCamera.scrollX = objCamera.prevScrollX
+objCamera.scrollY = objCamera.prevScrollY
+
+show_debug_message("Destroying finisher")
+instance_destroy()
 </string>
           </argument>
         </arguments>
@@ -48,119 +100,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Self-destruct if we're too far from the camera, or hit a wall
-
-if (x&lt;objCamera.x-64 ||
-    y &lt; objCamera.y - 64 ||
-    y&gt;objCamera.y+objCamera.viewportHeight+64 ||
-    x&gt;objCamera.x+objCamera.viewportWidth+64 ) || placeMeeting(0,0,"solid")
-{
-    instance_destroy();
-}
-
-x -= moveSpeedX*objMain.deltaTime;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Mega Crash
-if (objPlayer.excTimer&gt;0)
-{
-    if (x &gt;= objCamera.x &amp;&amp;
-        x &lt;= objCamera.x+objCamera.viewportWidth &amp;&amp;
-        y &gt;= objCamera.y &amp;&amp;
-        y &lt;= objCamera.y+objCamera.viewportHeight)
-    {
-        instance_destroy();
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Deal damage and destroy the colliding instance
-if (!objCamera.debug)
-{
-    if other.invincibilityFrames&lt;=0
-    {
-        if other.HP&gt;1
-        {
-            audio_stop_sound(sfxBarrierWeaken);
-            audio_play_sound(sfxBarrierWeaken,0,false);
-        }
-        other.HP--;
-    }
-    instance_destroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objFrontShield">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Handle colissions
-if (other.foundPlayer)
-{
-    if (x&lt;=objCamera.x+objCamera.scrollX+objCamera.viewportWidth-4)
-    {
-        with (other)
-        {
-            HP--;
-            audio_stop_sound(sfxBarrierWeaken);
-            audio_play_sound(sfxBarrierWeaken,0,false);
-        }
-        instance_destroy();
-    }
+            <string>if (global.state == states.paused) {
+    alarm[0]++
 }
 </string>
           </argument>
