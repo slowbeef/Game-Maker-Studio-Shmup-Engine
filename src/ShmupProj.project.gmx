@@ -65,6 +65,7 @@
       <sound>sound\musFlight2</sound>
       <sound>sound\musItemEquip</sound>
       <sound>sound\musStage1</sound>
+      <sound>sound\musVolcano</sound>
     </sounds>
     <sounds name="sfx">
       <sound>sound\itsjoke</sound>

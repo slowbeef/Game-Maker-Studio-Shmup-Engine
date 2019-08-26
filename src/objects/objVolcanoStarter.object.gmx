@@ -50,6 +50,12 @@
             <kind>1</kind>
             <string>if (objCamera.x &gt; x) {    
     if (generatorCreated == false) {
+    
+        objMain.rememberBGM = false;
+        global.prevSong = musStage1;
+        audio_stop_sound(global.currentSong);
+        changeBGM(musVolcano,true); //Boss BGM Intro (Loop handled automatically)
+
         objCamera.prevScrollX = objCamera.scrollX;
         objCamera.prevScrollY = objCamera.scrollY;
         objCamera.scrollX = 0;
