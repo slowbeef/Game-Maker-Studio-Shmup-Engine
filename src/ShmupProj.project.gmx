@@ -74,6 +74,7 @@
       <sound>sound\sfxBossShot</sound>
       <sound>sound\sfxBulletShot</sound>
       <sound>sound\sfxCapsuleGet</sound>
+      <sound>sound\sfxChunkDestroy</sound>
       <sound>sound\sfxCursorMove</sound>
       <sound>sound\sfxDie</sound>
       <sound>sound\sfxEnemyDestroyed</sound>

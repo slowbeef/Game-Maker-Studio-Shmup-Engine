@@ -96,8 +96,8 @@ if (randomTrajectory == 0) {
 if (global.state != states.startRoom &amp;&amp; !objMain.cleaningRoom &amp;&amp; !silentKill)
     {
     global.playerScore += 100;
-    audio_stop_sound(sfxEnemyDestroyed);
-    audio_play_sound(sfxEnemyDestroyed,1,false);
+    audio_stop_sound(sfxChunkDestroy);
+    audio_play_sound(sfxChunkDestroy,1,false);
     //Upon destruction, spawn an explosion to the closest 8x8 tile
     //Swap the line below with the one just under it to change behavior
     //thisExplosion = instance_create(floor(x/8)*8,floor(y/8)*8,obj16x16Explosion);
@@ -127,20 +127,22 @@ if (global.state != states.startRoom &amp;&amp; !objMain.cleaningRoom &amp;&amp;
           <argument>
             <kind>1</kind>
             <string>if (global.state == states.gameMode) {
+    active=true;
     if (hspeed == 0 &amp;&amp; vspeed == 0) {
         hspeed = previousHspeed;
         vspeed = previousVspeed;
         previousHspeed = 0;
         previousVspeed = 0;
     }    
-    active=true;
     vspeed += deceleration;
 } else {
     active=false;
-    previousHspeed = hspeed;
-    previousVspeed = vspeed;    
-    hspeed = 0;
-    vspeed = 0;
+    if (hspeed != 0 &amp;&amp; vspeed != 0) {
+        previousHspeed = hspeed;
+        previousVspeed = vspeed;    
+        hspeed = 0;
+        vspeed = 0;
+    }
 }
 
 
