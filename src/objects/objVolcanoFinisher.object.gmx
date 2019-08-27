@@ -79,7 +79,6 @@ objCamera.scrollY = objCamera.prevScrollY
 show_debug_message("Destroying finisher")
 
 objMain.rememberBGM = false;
-global.prevSong = musVolcano;
 audio_stop_sound(global.currentSong);
 changeBGM(musStage1,true);
 
