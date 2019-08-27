@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="43" name="datafiles">
-    <datafiles number="43" name="maps">
+  <datafiles number="44" name="datafiles">
+    <datafiles number="44" name="maps">
       <datafile>
         <name>map00.oel</name>
         <exists>-1</exists>
@@ -42,7 +42,7 @@
       <datafile>
         <name>volcano.oel</name>
         <exists>-1</exists>
-        <size>4075</size>
+        <size>4077</size>
         <exportAction>2</exportAction>
         <exportDir></exportDir>
         <overwrite>0</overwrite>
