@@ -1,4 +1,5 @@
 # Game-Maker-Studio-Shmup-Engine
+# Mod by slowbeef
 Open-Source Gradius Shmup Engine for Game Maker: Studio
 This engine is heavily reliant on knowledge of GML.
 As long as all assets are replaced with your own, you may use this source code royalty-free. (Credit isn't required, but appreciated)
