@@ -94,6 +94,7 @@ else
 }
 
 //Double
+//TODO: Would enums make more sense instead of these integer case statements?
 if (argument[0].hasDouble)
 {
     shootCounterMax=shootCounterMaxWithDouble;
@@ -108,7 +109,17 @@ if (argument[0].hasDouble)
                     thisBullet.parentGun = id;
                     thisBullet.doubleType = doubleType;
                     thisBullet.bulletXSpeed = 6;
-                    shootDoubleCounter++;
+                    thisBullet.bulletYSpeed = -6;
+                    
+                    thatBullet = instance_create(x+argument[0].hsp,y+argument[0].vsp,objDouble);
+                    thatBullet.parentGun = id;
+                    thatBullet.doubleType = doubleType;
+                    thatBullet.bulletXSpeed = 6;                    
+                    thatBullet.bulletYSpeed = 6;
+                    thatBullet.image_yscale = -1;
+                    
+                                        
+                    shootDoubleCounter += 2;
                     shootDoubleDelayTimer=4;
                     break;
                 case 2:
