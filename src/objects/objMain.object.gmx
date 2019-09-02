@@ -267,7 +267,7 @@ else
     ini_close();
 }
 
-window_set_size(256*windowSize,256*windowSize);
+window_set_size(256*windowSize,144*windowSize);
 
 //Initialize sounds
 global.currentSong=0;       
@@ -892,19 +892,19 @@ if (timer &lt;= 0)
             if (keyboard_check_pressed(ord('2')) &amp;&amp; windowSize!=2)
             {
                 windowSize = 2;
-                window_set_size(256*windowSize,256*windowSize);
+                window_set_size(256*windowSize,144*windowSize);
                 timer = 10;
             }
             else if (keyboard_check_pressed(ord('1')) &amp;&amp; windowSize!=1)
             {
                 windowSize = 1;
-                window_set_size(256*windowSize,256*windowSize);
+                window_set_size(256*windowSize,144*windowSize);
                 timer = 10;
             }
-            else if (keyboard_check_pressed(ord('3')) &amp;&amp; windowSize!=3)
+            else if (keyboard_check_pressed(ord('3')) &amp;&amp; windowSize!=4)
             {
-                windowSize = 3;
-                window_set_size(256*windowSize,256*windowSize);
+                windowSize = 4;
+                window_set_size(256*windowSize,144*windowSize);
                 timer = 10;
             }
             else if (keyboard_check(vk_alt)&amp;&amp;keyboard_check_pressed(vk_enter))
@@ -1658,7 +1658,7 @@ if global.tick&lt;=waitTime+10
 {
     draw_set_color(c_white);
     draw_set_alpha(1);
-    draw_text(8*5,8*12,"    Gradius Engine#     v1.5 Preview##          by##     mysterypaint#");
+    draw_text(8*5,8*12,"    Gradius Engine#     v1.5 Preview##    original by##     mysterypaint##      modified by #  slowbeef");
 }
 
 //Fade out on top of the text

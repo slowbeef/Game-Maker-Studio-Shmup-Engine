@@ -30,7 +30,7 @@ depth=1000000;
 
 debug=false;
 camMoveSpeed=4;
-tilemapViewportWidth=288;
+tilemapViewportWidth=512;
 tilemapViewportHeight=288;
 //Always leave these at 0
 scrollX=0.3;
@@ -51,8 +51,8 @@ leftBound=16;
 rightBound=16;
 upperBound=28;
 lowerBound=32;
-viewportWidth=256;
-viewportHeight=256;
+viewportWidth=512;
+viewportHeight=288;
 
 //Cutscene bars
 yCutsceneBarTo=0;
