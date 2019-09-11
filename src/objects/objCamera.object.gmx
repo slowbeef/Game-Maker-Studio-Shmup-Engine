@@ -301,9 +301,9 @@ if (global.state==2 || global.state==3 || global.state==5) {
     
     //dynamic render
     var startCol = floor(objCamera.x / global.tileWidth)-1;
-    var endCol = startCol + (objCamera.tilemapViewportWidth / global.tileWidth);
+    var endCol = startCol + (objCamera.tilemapViewportWidth / global.tileWidth) + 1;
     var startRow = floor(objCamera.y / global.tileHeight)-1;
-    var endRow = startRow + (objCamera.tilemapViewportHeight / global.tileWidth);
+    var endRow = startRow + (objCamera.tilemapViewportHeight / global.tileWidth) + 1;
     
     var offsetX = startCol * global.tileWidth;
     var offsetY = startRow * global.tileHeight;
@@ -818,7 +818,7 @@ var dynamicPlayerScoreSpacing="";
 var lenPlayerScore = string_length(string(global.playerScore));
 for(var i=0; i&lt;13-lenPlayerScore;i++)
 {
-    dynamicPlayerScoreSpacing+=" ";
+    dynamicPlayerScoreSpacing+="  ";
 }
 
 //Calculate the spacing between "HI" and the score location
@@ -826,7 +826,7 @@ var dynamicHighScoreSpacing="";
 var lenHighScore = string_length(string(global.highScore));
 for(var i=0; i&lt;13-lenHighScore;i++)
 {
-    dynamicHighScoreSpacing+=" ";
+    dynamicHighScoreSpacing+="  ";
 }
 
 //Finally, draw the score onto the screen
@@ -834,11 +834,11 @@ for(var i=0; i&lt;13-lenHighScore;i++)
 draw_text(objCamera.x, objCamera.y+4, playersText + dynamicPlayerScoreSpacing + string(global.playerScore));
 if (objMain.currPlayers&lt;=1)
 {
-    draw_text(objCamera.x+(8*16), objCamera.y+4, "HI" + dynamicHighScoreSpacing + string(global.highScore));
+    draw_text(objCamera.x+(16*16), objCamera.y+4, "HI" + dynamicHighScoreSpacing + string(global.highScore));
 }
 else
 {
-    draw_text(objCamera.x+(8*16), objCamera.y+4, "HI" + dynamicHighScoreSpacing + string(global.highCoScore));
+    draw_text(objCamera.x+(16*16), objCamera.y+4, "HI" + dynamicHighScoreSpacing + string(global.highCoScore));
 }
 
 //Next, draw the lives
