@@ -74,7 +74,7 @@ else if currentMenu==2
         //Back
         case 7:
             audio_stop_sound(sfxMenuCancel);audio_play_sound(sfxMenuCancel,1,false);
-            mpos=1;currentMenu-=1;global.bgmVol=prevBGMVol;global.sfxVol=prevSFXVol;objMain.windowSize=prevWindowSize;window_set_size(256*objMain.windowSize,144*objMain.windowSize); playerConfig = 1;
+            mpos=1;currentMenu-=1;global.bgmVol=prevBGMVol;global.sfxVol=prevSFXVol;objMain.windowSize=prevWindowSize;window_set_size(global.width*objMain.windowSize,global.height*objMain.windowSize); playerConfig = 1;
             global.keyUp = prevKeyUp;
             global.keyDown = prevKeyDown;
             global.keyLeft = prevKeyLeft;

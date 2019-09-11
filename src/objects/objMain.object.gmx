@@ -92,6 +92,9 @@ loopCounter = 1; //Keeps track of how many game loops we've done (Starts at 1)
 
 currPlayers = 1; //Keeps track of how many players are active in the game (Set by the menuExecute() script)
 
+global.width=512;
+global.height=288;
+
 global.currentMap = 0; //Reserved for keeping track of the game's current map
 global.prevMap = 0; //Reserved for keeping track of the game's previous map
 switchingMaps = false; //Turned off at the very end of loadLevel() script
@@ -267,7 +270,7 @@ else
     ini_close();
 }
 
-window_set_size(256*windowSize,144*windowSize);
+window_set_size(global.width*windowSize,global.height*windowSize);
 
 //Initialize sounds
 global.currentSong=0;       
@@ -767,7 +770,7 @@ switch(global.state) //Game mode handling
         background_visible[2] = false;
         if global.tick==1{audio_play_sound(itsjoke,1,false);}
         if global.tick&gt;=waitTime+30
-        {global.state=1; instance_create(8*8,8*5,objTitle);} //changeBGM(bgmTitle,true);
+        {global.state=1; instance_create(0,0,objTitle);} //changeBGM(bgmTitle,true);
         levelData = 0;
         levelDataLayer2 = 0;
         levelDataSprites = 0;
@@ -840,17 +843,16 @@ switch(global.state) //Game mode handling
     case states.paused: // paused
         //Handle Unpausing
         konCodeInput(); //huhuh
-        if ((objMain.keyP1PausePressed || objMain.keyP2PausePressed) &amp;&amp; !keyboard_check(vk_alt) &amp;&amp; global.pauseTimer&lt;=0)
-        {
-        deltaTime = 1;
-        audio_resume_sound(global.currentSong);
-        global.state=global.statePrevious;
-        global.statePrevious=5;
-        global.pauseTimer=10;     
-        //Unfreeze the parallax night sky
-        background_hspeed[0] = -0.2;
-        background_hspeed[1] = -0.4;
-        background_hspeed[2] = -0.6;
+        if ((objMain.keyP1PausePressed || objMain.keyP2PausePressed) &amp;&amp; !keyboard_check(vk_alt) &amp;&amp; global.pauseTimer&lt;=0) {
+            deltaTime = 1;
+            audio_resume_sound(global.currentSong);
+            global.state=global.statePrevious;
+            global.statePrevious=5;
+            global.pauseTimer=10;     
+            //Unfreeze the parallax night sky
+            background_hspeed[0] = -0.2;
+            background_hspeed[1] = -0.4;
+            background_hspeed[2] = -0.6;
         }
         break;
     case states.gameOver: // game over
@@ -859,23 +861,19 @@ switch(global.state) //Game mode handling
         break;
 }
 
-if (global.pauseTimer&gt;0) {global.pauseTimer--;}
+if (global.pauseTimer&gt;0) {
+    global.pauseTimer--;
+}
 
-if (keyboard_check(vk_escape))
-    {
-    if instance_exists(objTitle)
-        {
-        if objTitle.currentMenu==0
-            {
-                gameEndTimer--;
-                if gameEndTimer&lt;=0
-                    {
-                    game_end();
-                    }
+if (keyboard_check(vk_escape)) {
+    if instance_exists(objTitle) {
+        if objTitle.currentMenu==0 {
+            gameEndTimer--;
+            if gameEndTimer&lt;=0 {
+                game_end();
             }
         }
-        else
-        {
+    } else {
     
         gameEndTimer--;
         if gameEndTimer&lt;=0
@@ -892,19 +890,19 @@ if (timer &lt;= 0)
             if (keyboard_check_pressed(ord('2')) &amp;&amp; windowSize!=2)
             {
                 windowSize = 2;
-                window_set_size(256*windowSize,144*windowSize);
+                window_set_size(global.width*windowSize,global.height*windowSize);
                 timer = 10;
             }
             else if (keyboard_check_pressed(ord('1')) &amp;&amp; windowSize!=1)
             {
                 windowSize = 1;
-                window_set_size(256*windowSize,144*windowSize);
+                window_set_size(global.width*windowSize,global.height*windowSize);
                 timer = 10;
             }
-            else if (keyboard_check_pressed(ord('3')) &amp;&amp; windowSize!=4)
+            else if (keyboard_check_pressed(ord('3')) &amp;&amp; windowSize!=3)
             {
-                windowSize = 4;
-                window_set_size(256*windowSize,144*windowSize);
+                windowSize = 3;
+                window_set_size(global.width*windowSize,global.height*windowSize);
                 timer = 10;
             }
             else if (keyboard_check(vk_alt)&amp;&amp;keyboard_check_pressed(vk_enter))
@@ -1641,8 +1639,7 @@ if !instance_exists(objCamera)
             <string>///Handle game bootup text and set a global (sprite-based) font
 draw_enable_alphablend(false);
 
-if global.tick==5||global.tick==6
-{
+if global.tick==5||global.tick==6 {
     draw_set_color(c_white);
     draw_rectangle(-8,128,290,140,false);
 }
@@ -1654,11 +1651,14 @@ else if global.tick==8||global.tick==9
 
 draw_set_font(global.font);
 
+attributionOffsetX = 175
+attributionOffsetY = 100
+
 if global.tick&lt;=waitTime+10
 {
     draw_set_color(c_white);
     draw_set_alpha(1);
-    draw_text(8*5,8*12,"    Gradius Engine#     v1.5 Preview##    original by##     mysterypaint##      modified by #  slowbeef");
+    draw_text(attributionOffsetX,attributionOffsetY,"    Gradius Engine#     v1.5 Preview##     original by##     mysterypaint##     modified by #      slowbeef");
 }
 
 //Fade out on top of the text

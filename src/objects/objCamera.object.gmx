@@ -30,8 +30,8 @@ depth=1000000;
 
 debug=false;
 camMoveSpeed=4;
-tilemapViewportWidth=512;
-tilemapViewportHeight=288;
+tilemapViewportWidth=global.width;
+tilemapViewportHeight=global.height;
 //Always leave these at 0
 scrollX=0.3;
 scrollY=0;
@@ -51,8 +51,8 @@ leftBound=16;
 rightBound=16;
 upperBound=28;
 lowerBound=32;
-viewportWidth=512;
-viewportHeight=288;
+viewportWidth=global.width;
+viewportHeight=global.height;
 
 //Cutscene bars
 yCutsceneBarTo=0;
@@ -333,15 +333,15 @@ if (global.state==2 || global.state==3 || global.state==5) {
             {
                 
                 draw_background_part(
-                global.tilesetIndex, // image
-                getTile(real(tileID),3), // source x
+                    global.tilesetIndex, // image
+                    getTile(real(tileID),3), // source x
                 
-                getTile(real(tileID),4), // source y
-                global.tileWidth, // source width
-                global.tileHeight, // source height
-                xPos,// target x
-                yPos // target y
-                );//depth
+                    getTile(real(tileID),4), // source y
+                    global.tileWidth, // source width
+                    global.tileHeight, // source height
+                    xPos,// target x
+                    yPos // target y
+                    );//depth
                 
             }
         }
@@ -717,9 +717,7 @@ if (global.state==states.startRoom)
     
     if (startFlickerOn)
     {
-    draw_sprite(sprStart,0,objMain.x+(viewportWidth/2),objMain.y+(viewportHeight/2)-8); //Arcade Style
-    //draw_set_color(c_white);
-    //draw_text(objMain.x+(viewportWidth/2)-(8*2),objMain.y+(viewportHeight/2)-(8*2),"START"); //SNES Style
+        draw_sprite(sprStart,0,objMain.x+(viewportWidth/2),objMain.y+(viewportHeight/2)-8); //Arcade Style
     }
 }
 
@@ -734,7 +732,7 @@ if (global.state==states.paused)
     
     if (pauseFlickerOn)
     {
-    draw_text(x+(viewportWidth/2)-(8*3),y+(viewportHeight/2)-(8*2),"PAUSED"); //SNES Style
+        draw_text(x+(viewportWidth/2)-(8*3),y+(viewportHeight/2)-(8*2),"PAUSED"); //SNES Style
     }
 }
 
@@ -747,7 +745,7 @@ if (global.state==states.gameMode &amp;&amp; objMain.showLoop&gt;0)
     draw_text(x,y+(viewportHeight/2)-(8*3),"    Congratulations! Now try");
     if (pauseFlickerOn)
     {
-    draw_text(x+(viewportWidth/2)-(8*3),y+(viewportHeight/2)-(8*2),"Loop " + string(objMain.loopCounter) + "!");
+        draw_text(x+(viewportWidth/2)-(8*3),y+(viewportHeight/2)-(8*2),"Loop " + string(objMain.loopCounter) + "!");
     }
     
     objMain.showLoop--;
