@@ -909,10 +909,11 @@ else if global.state==3
 
 draw_set_color(c_black);
 
+//Cutscene bars removed because they mess up widescreen
 //upper
-draw_rectangle(x-8,y+yCutsceneBarPos-1,x+263,y+yCutsceneBarPos+31,false);
+//draw_rectangle(x-8,y+yCutsceneBarPos-1,x+263,y+yCutsceneBarPos+31,false);
 //lower
-draw_rectangle(x-8,y+224-yCutsceneBarPos,x+263,y+223-yCutsceneBarPos+32,false);
+//draw_rectangle(x-8,y+224-yCutsceneBarPos,x+263,y+223-yCutsceneBarPos+32,false);
 </string>
           </argument>
         </arguments>

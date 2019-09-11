@@ -1,16 +1,18 @@
 ///Draw Player 1's HUD if we're on single player mode
 //This script is called from objCamera's Draw Event
 
+var HUDOffsetX = 128+16;
+var HUDOffsetY = 270;
+
 for(var i=0;i<7;i++)
 {
     //Handle the boxes themselves
-    if (i+1 == objPlayer.powerupSlot)
-    {
-    //original y pos was 212
-    draw_sprite(sprPowerupHUD,2,objCamera.x+128+16+(32*i),objCamera.y+250);
+    if (i+1 == objPlayer.powerupSlot) {
+        //original y pos was 212
+        draw_sprite(sprPowerupHUD,2,objCamera.x+HUDOffsetX+(32*i),objCamera.y+HUDOffsetY);
+    } else {
+        draw_sprite(sprPowerupHUD,0,objCamera.x+HUDOffsetX+(32*i),objCamera.y+HUDOffsetY);
     }
-    else
-    {draw_sprite(sprPowerupHUD,0,objCamera.x+128+16+(32*i),objCamera.y+250);}
 }
 
 //Handle the actual text in the boxes
@@ -74,16 +76,16 @@ currQuestion += 1;
 currExclamation += 1;
 
 //Speedup
-currColor = hudDetermineColor(1,1); if (objPlayer.playerSpeed < objPlayer.playerSpeedMax) draw_sprite_ext( sprPowerupHUD, currSpeed, objCamera.x+128+16+(32*0),objCamera.y+228, 1, 1, 0, currColor, 1);
+currColor = hudDetermineColor(1,1); if (objPlayer.playerSpeed < objPlayer.playerSpeedMax) draw_sprite_ext( sprPowerupHUD, currSpeed, objCamera.x+HUDOffsetX+(32*0),objCamera.y+HUDOffsetY, 1, 1, 0, currColor, 1);
 //Missile
-currColor = hudDetermineColor(2,1); if (!objPlayer.hasMissile) draw_sprite_ext( sprPowerupHUD, currMissile, objCamera.x+128+16+(32*1),objCamera.y+228, 1, 1, 0, currColor, 1);
+currColor = hudDetermineColor(2,1); if (!objPlayer.hasMissile) draw_sprite_ext( sprPowerupHUD, currMissile, objCamera.x+HUDOffsetX+(32*1),objCamera.y+HUDOffsetY, 1, 1, 0, currColor, 1);
 //Double
-currColor = hudDetermineColor(3,1); if (!objPlayer.hasDouble) draw_sprite_ext( sprPowerupHUD, currDouble, objCamera.x+128+16+(32*2),objCamera.y+228, 1, 1, 0, currColor, 1);
+currColor = hudDetermineColor(3,1); if (!objPlayer.hasDouble) draw_sprite_ext( sprPowerupHUD, currDouble, objCamera.x+HUDOffsetX+(32*2),objCamera.y+HUDOffsetY, 1, 1, 0, currColor, 1);
 //Laser
-currColor = hudDetermineColor(4,1); if (!objPlayer.hasLaser) draw_sprite_ext( sprPowerupHUD, currLaser, objCamera.x+128+16+(32*3),objCamera.y+228, 1, 1, 0, currColor, 1);
+currColor = hudDetermineColor(4,1); if (!objPlayer.hasLaser) draw_sprite_ext( sprPowerupHUD, currLaser, objCamera.x+HUDOffsetX+(32*3),objCamera.y+HUDOffsetY, 1, 1, 0, currColor, 1);
 //Option
-currColor = hudDetermineColor(5,1); if (objPlayer.numOfOpts<objPlayer.optsMax) draw_sprite_ext( sprPowerupHUD, currOption, objCamera.x+128+16+(32*4),objCamera.y+228, 1, 1, 0, currColor, 1);
+currColor = hudDetermineColor(5,1); if (objPlayer.numOfOpts<objPlayer.optsMax) draw_sprite_ext( sprPowerupHUD, currOption, objCamera.x+HUDOffsetX+(32*4),objCamera.y+HUDOffsetY, 1, 1, 0, currColor, 1);
 //Question
-currColor = hudDetermineColor(6,1); if (!objPlayer.hasQuestion) draw_sprite_ext( sprPowerupHUD, currQuestion, objCamera.x+128+16+(32*5),objCamera.y+228, 1, 1, 0, currColor, 1);
+currColor = hudDetermineColor(6,1); if (!objPlayer.hasQuestion) draw_sprite_ext( sprPowerupHUD, currQuestion, objCamera.x+HUDOffsetX+(32*5),objCamera.y+HUDOffsetY, 1, 1, 0, currColor, 1);
 //Exclamation
-currColor = hudDetermineColor(7,1); if (!objPlayer.hasExclamation) draw_sprite_ext( sprPowerupHUD, currExclamation, objCamera.x+128+16+(32*6),objCamera.y+228, 1, 1, 0, currColor, 1);
+currColor = hudDetermineColor(7,1); if (!objPlayer.hasExclamation) draw_sprite_ext( sprPowerupHUD, currExclamation, objCamera.x+HUDOffsetX+(32*6),objCamera.y+HUDOffsetY, 1, 1, 0, currColor, 1);
