@@ -84,7 +84,7 @@ with (parentGun)
     self.x+=objCamera.scrollX+bulletXSpeed;
     self.y+=objCamera.scrollY+bulletYSpeed;
     
-    if self.x+objCamera.scrollX+bulletXSpeed&gt;objCamera.x+288 //Delete the bullet if it's 32 pixels past the camera bounds
+    if self.x+objCamera.scrollX+bulletXSpeed&gt;objCamera.x+512 //Delete the bullet if it's 32 pixels past the camera bounds
     {
         instance_destroy();
     }

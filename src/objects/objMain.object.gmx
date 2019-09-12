@@ -1460,33 +1460,30 @@ if (global.state==states.equipScreen)
     draw_set_color($88E0A0);
     
     //Equip menu stuff
-    if (typeSelect)
-    {
-        if (equipTypeBlinkShow || equipChangeTimer&lt;=0  || shieldSelect!=0)
-        {
+    if (typeSelect) {
+        if (equipTypeBlinkShow || equipChangeTimer&lt;=0  || shieldSelect!=0) {
             draw_sprite(sprEquipHighlight,0,128+14,20+26+(equipTypePos*32));                           //Top-Left
             draw_sprite_ext(sprEquipHighlight,0,128+241,20+26+(equipTypePos*32),-1,1,0,c_white,1);     //Top-Right
             draw_sprite_ext(sprEquipHighlight,0,128+14,20+54+(equipTypePos*32),1,-1,0,c_white,1);      //Bottom-Left
             draw_sprite_ext(sprEquipHighlight,0,128+241,20+54+(equipTypePos*32),-1,-1,0,c_white,1);    //Bottom-Right
             
-            draw_rectangle(128+16,24+(equipTypePos*32),128+238,24+(equipTypePos*32),false);     //Upper
-            draw_rectangle(128+13,27+(equipTypePos*32),128+13,52+(equipTypePos*32),false);      //Left
-            draw_rectangle(128+241,27+(equipTypePos*32),128+241,52+(equipTypePos*32),false);    //Right
-            draw_rectangle(128+16,55+(equipTypePos*32),128+238,55+(equipTypePos*32),false);     //Lower
+            draw_rectangle(128+16,20+24+(equipTypePos*32),128+238,20+24+(equipTypePos*32),false);     //Upper
+            draw_rectangle(128+13,20+27+(equipTypePos*32),128+13,20+52+(equipTypePos*32),false);      //Left
+            draw_rectangle(128+241,20+27+(equipTypePos*32),128+241,20+52+(equipTypePos*32),false);    //Right
+            draw_rectangle(128+16,20+55+(equipTypePos*32),128+238,20+55+(equipTypePos*32),false);     //Lower
         }
 
-        if (equipShieldBlinkShow || equipChangeTimer&lt;=0 || shieldSelect!=1)
-        {
-        draw_sprite(sprEquipHighlight,0,153+(equipShieldPos*48),188);                         //Top-Left
-        draw_sprite_ext(sprEquipHighlight,0,183+(equipShieldPos*48),188,-1,1,0,c_white,1);    //Top-Right
-        draw_sprite_ext(sprEquipHighlight,0,153+(equipShieldPos*48),214,1,-1,0,c_white,1);    //Bottom-Left
-        draw_sprite_ext(sprEquipHighlight,0,183+(equipShieldPos*48),214,-1,-1,0,c_white,1);   //Bottom-Right
+        if (equipShieldBlinkShow || equipChangeTimer&lt;=0 || shieldSelect!=1) {
+            draw_sprite(sprEquipHighlight,0,128+153+(equipShieldPos*48),20+188);                         //Top-Left
+            draw_sprite_ext(sprEquipHighlight,0,128+183+(equipShieldPos*48),20+188,-1,1,0,c_white,1);    //Top-Right
+            draw_sprite_ext(sprEquipHighlight,0,128+153+(equipShieldPos*48),20+214,1,-1,0,c_white,1);    //Bottom-Left
+            draw_sprite_ext(sprEquipHighlight,0,128+183+(equipShieldPos*48),20+214,-1,-1,0,c_white,1);   //Bottom-Right
         
-        draw_rectangle(155+(equipShieldPos*48),186,180+(equipShieldPos*48),186,false);     //Upper
-        draw_rectangle(152+(equipShieldPos*48),190,152+(equipShieldPos*48),211,false);     //Left
-        draw_rectangle(183+(equipShieldPos*48),190,183+(equipShieldPos*48),211,false);     //Right
-        draw_rectangle(155+(equipShieldPos*48),215,180+(equipShieldPos*48),215,false);     //Lower
-        }
+            draw_rectangle(128+155+(equipShieldPos*48),20+186,128+180+(equipShieldPos*48),20+186,false);     //Upper
+            draw_rectangle(128+152+(equipShieldPos*48),20+190,128+152+(equipShieldPos*48),20+211,false);     //Left
+            draw_rectangle(128+183+(equipShieldPos*48),20+190,128+183+(equipShieldPos*48),20+211,false);     //Right
+            draw_rectangle(128+155+(equipShieldPos*48),20+215,128+180+(equipShieldPos*48),20+215,false);     //Lower
+            }
         
         if (equipTypePos==p2EquipTypePos &amp;&amp; currPlayers&gt;1)
         {
@@ -1548,7 +1545,7 @@ if (global.state==states.equipScreen)
     }
     draw_set_color($88E0A0);
     if (shieldSelect&gt;1)
-    {draw_text(0,8*28,"PLAYER 1 READY");}
+    {draw_text(128+0,8*28,"PLAYER 1 READY");}
     
     draw_set_color(c_red);
     if ((p2ShieldSelect&gt;1) &amp;&amp; objMain.currPlayers &gt;1)
@@ -1561,7 +1558,7 @@ if (global.state==states.equipScreen)
         if (glFlicker)
         {
             draw_set_color(c_white);
-            draw_text((8*11)+4,8*14,"Good luck!");
+            draw_text((8*11)+4+128,8*14,"Good luck!");
         }
         glTimer--;
     }    
