@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="50" name="datafiles">
-    <datafiles number="50" name="maps">
+  <datafiles number="51" name="datafiles">
+    <datafiles number="51" name="maps">
       <datafile>
         <name>map00.oel</name>
         <exists>-1</exists>
@@ -59,7 +59,7 @@
       <datafile>
         <name>tankboss.oel</name>
         <exists>-1</exists>
-        <size>7830</size>
+        <size>8853</size>
         <exportAction>2</exportAction>
         <exportDir></exportDir>
         <overwrite>0</overwrite>
@@ -235,6 +235,9 @@
       <object>objects\objVolcanoChunk</object>
       <object>objects\objVolcanoChunkGenerator</object>
       <object>objects\objChunkExplosion</object>
+    </objects>
+    <objects name="Tank Boss">
+      <object>objects\objTankBossStarter</object>
     </objects>
   </objects>
   <rooms name="rooms">

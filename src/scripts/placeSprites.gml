@@ -42,7 +42,11 @@ case "objVolcanoTop":
         var myID = instance_create(argument[2],argument[3],objVolcanoTop);
         with (myID) {myID = argument[1];}
         break;
-
+case "objTankBossStarter":
+        var myID = instance_create(argument[2],argument[3],objTankBossStarter);
+        with (myID) {myID = argument[1];}
+        break;
+        
 //Throw an error in case we run into some undefined case
 case "undefined":
 default: if(!objMain.threwError){show_message("Warning: Unknown object(s) detected! Unable to spawn and skipping over it.##Make sure each object has a switch case in the placeSprite() script: each case should perfectly match their corresponding entity's name in the .oep!");objMain.threwError=true;}

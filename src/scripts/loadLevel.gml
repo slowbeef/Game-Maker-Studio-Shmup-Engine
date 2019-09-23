@@ -21,6 +21,7 @@ for (var i=0; i < 6;i++)
             case 4: objToFind="objCapsule"; break;
             case 5: objToFind="objVolcanoStarter"; break;
             case 6: objToFind="objVolcanoTop"; break;
+            case 7: objToFind="objTankBossStarter"; break;
             default: break;
         }
     if (objToFind != "null")
