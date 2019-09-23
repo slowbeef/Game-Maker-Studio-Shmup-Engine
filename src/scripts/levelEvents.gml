@@ -12,6 +12,14 @@ switch(global.currentMap)
         }
         break;
     
+    case "tankboss.oel": //Test Volcano Stage
+        if objCamera.x<-250{objMain.nextGameLoop=false;}
+        
+        if objCamera.x > (global.mapWidth * global.tileWidth) - 32 && !objMain.nextGameLoop
+        {
+            changeMap("tankboss.oel",musStage1);
+        }
+        break;
     
     case "map00.oel": //Pre-stage 1
         if objCamera.x<-250{objMain.nextGameLoop=false;}

@@ -947,8 +947,8 @@ if (global.state==states.equipScreen)
         }
         audio_group_unload(sfxMenu);
         audio_group_load(sfxInGame);
-        loadLevel("volcano.oel");
-        global.prevMap = "volcano.oel";
+        loadLevel("tankboss.oel");
+        global.prevMap = "tankboss.oel";
         audio_stop_sound(global.currentSong);
         changeBGM(musFlight2,false);
         objMain.x = objCamera.x;
