@@ -240,7 +240,7 @@ else
 //Account for camera scrolling
 //Player and capsule-grabbing hitbox will keep scrolling with the camera even if they're dead
 
-if global.state != states.startRoom
+if (global.state != states.startRoom)
 {
     x += objCamera.scrollX * objMain.deltaTime;
     y += objCamera.scrollY * objMain.deltaTime;

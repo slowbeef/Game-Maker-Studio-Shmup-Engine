@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize some variables
+looping=false;
 depth=1000000;
 
 debug=false;
@@ -219,6 +220,11 @@ if (debug)
             <kind>1</kind>
             <string>///Move the view and sky background
 
+if (looping) {
+    x -= global.tileWidth * 2;
+    looping = false;
+}
+
 //Every frame, we should check for any level events (bgm changing, map switching, etc)
 levelEvents();
 
@@ -308,6 +314,7 @@ if (global.state==2 || global.state==3 || global.state==5) {
     var offsetX = startCol * global.tileWidth;
     var offsetY = startRow * global.tileHeight;
     
+    lastColumn = startCol;
     
     for (var c = startCol; c &lt;= endCol; c++)
     {

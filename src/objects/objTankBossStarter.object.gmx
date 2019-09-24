@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_debug_message("Start scrolling")
+            <string>if (objCamera.x &gt; x + global.tileWidth * 2) {
+    objCamera.looping = true;
+}
 </string>
           </argument>
         </arguments>
