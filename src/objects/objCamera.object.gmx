@@ -222,6 +222,7 @@ if (debug)
 
 if (looping) {
     x -= global.tileWidth * 2;
+    objPlayer1.x -= global.tileWidth * 2;
     looping = false;
 }
 
@@ -987,7 +988,7 @@ if (debug)
     var tile = real(ds_grid_get(objMain.levelData,posX,posY));
     if tile&lt;0 {tile=0;}
     
-    draw_text(objCamera.x,objCamera.y+4,"###Mouse on tile type: " + string(tile) + "(" + string(objMain.tiletypes[tile]) + ")");
+//    draw_text(objCamera.x,objCamera.y+4,"###Mouse on tile type: " + string(tile) + "(" + string(objMain.tiletypes[tile]) + ")");
     
     //Allow debug changing tile if you left/right-click over the tile. Cycle through the tiles.
     if mouse_check_button_pressed(mb_left) &amp;&amp; !mouse_check_button_pressed(mb_right){if tile&lt;255{tile++;}else{tile=0;} changeTile=true;}

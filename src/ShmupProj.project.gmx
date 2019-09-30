@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="51" name="datafiles">
-    <datafiles number="51" name="maps">
+  <datafiles number="53" name="datafiles">
+    <datafiles number="53" name="maps">
       <datafile>
         <name>map00.oel</name>
         <exists>-1</exists>
@@ -59,7 +59,7 @@
       <datafile>
         <name>tankboss.oel</name>
         <exists>-1</exists>
-        <size>8853</size>
+        <size>8852</size>
         <exportAction>2</exportAction>
         <exportDir></exportDir>
         <overwrite>0</overwrite>
@@ -120,6 +120,10 @@
       <sprite>sprites\sprBossBarrier</sprite>
       <sprite>sprites\sprVolcanoChunk</sprite>
       <sprite>sprites\sprChunkExplosion</sprite>
+      <sprites name="TankBoss">
+        <sprite>sprites\sprTankBody</sprite>
+        <sprite>sprites\tankboss-wheel</sprite>
+      </sprites>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\sprBullet</sprite>

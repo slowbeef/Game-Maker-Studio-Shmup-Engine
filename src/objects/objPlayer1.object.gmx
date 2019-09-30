@@ -55,13 +55,14 @@ movingHoriz=0;
 var movingVert;
 var movingHoriz;
 
-if (HP&lt;=0) {dead = true;}
+if (HP&lt;=0) {
+    dead = true;
+}
 
-if (flyingIn&gt;=0)
-{
+if (flyingIn&gt;=0) {
+    
     //Explode ship if dead
-    if (dead)
-    {
+    if (dead) {
         //if global.state&gt;3{global.state = 2;} //Force un-pause the game if we're paused for some reason
     
         if (!explode)
@@ -121,31 +122,30 @@ if (flyingIn&gt;=0)
     {    
         //----Handle player movement
         //Check if we're moving vertically. Cancel out Up+Down
-        if objMain.keyP1Up &amp;&amp; !objMain.keyP1Down
-        {
-        movingVert=1;
+        if (objMain.keyP1Up &amp;&amp; !objMain.keyP1Down) {
+            movingVert=1;
         }
         else if objMain.keyP1Down &amp;&amp; !objMain.keyP1Up
         {
-        movingVert=-1;
+            movingVert=-1;
         }
         else
         {
-        movingVert=0;
+            movingVert=0;
         }
         
         //Do the same for horizontal movement, separately.
         if objMain.keyP1Left &amp;&amp; !objMain.keyP1Right
         {
-        movingHoriz=-1;
+            movingHoriz=-1;
         }
         else if objMain.keyP1Right &amp;&amp; !objMain.keyP1Left
         {
-        movingHoriz=1;
+            movingHoriz=1;
         }
         else
         {
-        movingHoriz=0;
+            movingHoriz=0;
         }
     
         //----Now that we know which direction to move in, check wall collisions and move the player
@@ -221,6 +221,7 @@ if (flyingIn&gt;=0)
             }
             vsp = 0;
         }
+        
         x += hsp * objMain.deltaTime;
         y += vsp * objMain.deltaTime;
     }
