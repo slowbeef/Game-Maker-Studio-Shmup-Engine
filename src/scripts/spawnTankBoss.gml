@@ -1,1 +1,1 @@
-var tankBody = instance_create(objCamera.x+300,192,objTankBody);
+var tankBody = instance_create(objCamera.x+objCamera.viewportWidth,192,objTankBody);
