@@ -223,6 +223,7 @@ if (debug)
 if (looping) {
     x -= global.tileWidth * 2;
     objPlayer1.x -= global.tileWidth * 2;
+    objTankBody.x -= global.tileWidth * 2;
     looping = false;
 }
 
