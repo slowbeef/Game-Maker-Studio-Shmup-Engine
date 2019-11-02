@@ -244,6 +244,7 @@
     <objects name="Tank Boss">
       <object>objects\objTankBossStarter</object>
       <object>objects\objTankBody</object>
+      <object>objects\objTankWheel</object>
     </objects>
   </objects>
   <rooms name="rooms">
