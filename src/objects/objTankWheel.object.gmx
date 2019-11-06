@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = objTankBody.x + 40
-y = objTankBody.y + 10
-image_angle += 10
+            <string>x = objTankBody.x + 70
+y = objTankBody.y + 40
+image_angle -= 10
 </string>
           </argument>
         </arguments>
